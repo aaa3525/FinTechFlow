@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply transition-colors duration-300;
+  }
+  
+  .dark {
+    color-scheme: dark;
+  }
+}
+
+@layer components {
+  .card-flip {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  
+  .card-flip:hover {
+    transform: rotateY(180deg);
+  }
+  
+  .card-front, .card-back {
+    backface-visibility: hidden;
+  }
+  
+  .card-back {
+    transform: rotateY(180deg);
+  }
+  
+  .stagger-card:nth-child(1) { animation-delay: 0s; }
+  .stagger-card:nth-child(2) { animation-delay: 0.1s; }
+  .stagger-card:nth-child(3) { animation-delay: 0.2s; }
+  .stagger-card:nth-child(4) { animation-delay: 0.3s; }
+  .stagger-card:nth-child(5) { animation-delay: 0.4s; }
+  .stagger-card:nth-child(6) { animation-delay: 0.5s; }
+  
+  @keyframes slideLeft {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .step-transition {
+    animation: slideLeft 0.3s ease-out;
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+  
+  .shake-animation {
+    animation: shake 0.3s ease-in-out;
+  }
+  
+  @keyframes scalePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  .scale-pulse {
+    animation: scalePulse 0.3s ease-out;
+  }
+  
+  @keyframes skeleton-loading {
+    0% { background-position: -200px 0; }
+    100% { background-position: calc(200px + 100%) 0; }
+  }
+  
+  .skeleton {
+    background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+    background-size: 200px 100%;
+    animation: skeleton-loading 1.5s infinite;
+  }
+  
+  .dark .skeleton {
+    background: linear-gradient(90deg, #2d2d2d 25%, #3d3d3d 50%, #2d2d2d 75%);
+    background-size: 200px 100%;
+  }
+}

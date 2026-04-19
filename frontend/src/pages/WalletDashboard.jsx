@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useCountUp } from '../hooks/useCountUp';
 import { useToast } from '../contexts/ToastContext';
 import { formatPKR } from '../utils/formatPKR';
 
-const API_URL = 'http://localhost:5000/api';
+import API_URL from '../config/api.js';
 
 const WalletDashboard = () => {
   const [wallet, setWallet] = useState({ balance: 0 });
@@ -97,7 +97,7 @@ const WalletDashboard = () => {
           <p className="text-white text-4xl font-bold">
             {formatPKR(countedBalance)}
           </p>
-          <p className="text-white text-sm mt-2">{wallet.currency} • {wallet.owner}</p>
+          <p className="text-white text-sm mt-2">{wallet.currency} â€¢ {wallet.owner}</p>
         </div>
       </div>
 

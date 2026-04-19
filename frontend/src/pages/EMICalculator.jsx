@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import axios from 'axios';
 import { useCountUp } from '../hooks/useCountUp';
 import { formatPKR } from '../utils/formatPKR';
 
-const API_URL = 'http://localhost:5000/api';
+import API_URL from '../config/api.js';
 
 const EMICalculator = () => {
   const [principal, setPrincipal] = useState('');

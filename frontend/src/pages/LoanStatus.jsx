@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useCountUp } from '../hooks/useCountUp';
 import { useToast } from '../contexts/ToastContext';
 import { formatPKR } from '../utils/formatPKR';
 import { LoanCardSkeleton } from '../components/SkeletonLoader';
 
-const API_URL = 'http://localhost:5000/api';
+import API_URL from '../config/api.js';
 
 const LoanStatus = () => {
   const [loans, setLoans] = useState([]);

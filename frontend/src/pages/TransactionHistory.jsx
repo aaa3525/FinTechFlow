@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { formatPKR } from '../utils/formatPKR';
 import { TransactionSkeleton } from '../components/SkeletonLoader';
 
-const API_URL = 'http://localhost:5000/api';
+import API_URL from '../config/api.js';
 
 const TransactionHistory = () => {
   const [transactions, setTransactions] = useState([]);
@@ -130,7 +130,7 @@ const TransactionHistory = () => {
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-4">
                 <div className={`text-2xl ${transaction.type === 'credit' ? 'text-green-500' : 'text-red-500'}`}>
-                  {transaction.type === 'credit' ? '↑' : '↓'}
+                  {transaction.type === 'credit' ? 'â†‘' : 'â†“'}
                 </div>
                 <div>
                   <p className="font-semibold text-gray-800 dark:text-white">

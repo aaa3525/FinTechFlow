@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import axios from 'axios';
 import { useToast } from '../contexts/ToastContext';
 import { formatPKR } from '../utils/formatPKR';
 
-const API_URL = 'http://localhost:5000/api';
+import API_URL from '../config/api.js';
 
 const LoanApplication = () => {
   const [step, setStep] = useState(1);
@@ -80,7 +80,7 @@ const LoanApplication = () => {
     return (
       <div className="max-w-2xl mx-auto px-4 py-8">
         <div className="bg-green-100 dark:bg-green-900 rounded-lg p-8 text-center animate-fade-in">
-          <div className="text-6xl mb-4">🎉</div>
+          <div className="text-6xl mb-4">ðŸŽ‰</div>
           <h2 className="text-2xl font-bold mb-4 text-green-800 dark:text-green-200">
             Application Submitted Successfully!
           </h2>

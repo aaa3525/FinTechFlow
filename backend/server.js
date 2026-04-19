@@ -6,18 +6,28 @@ import loansRoutes from './routes/loans.js';
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+const corsOptions = {
+  origin: [
+    'https://fintechflow-seven.vercel.app',
+    'https://fintechflow.vercel.app',
+    'http://localhost:3000',
+    'http://localhost:5173'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
-// Routes
 app.use('/api', walletRoutes);
 app.use('/api', loansRoutes);
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-  res.status(500).json({ error: err.message || 'Internal server error' });
+app.get('/', (req, res) => {
+  res.json({ message: 'FintechFlow API is running' });
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log('Server running on port ' + PORT);
 });
